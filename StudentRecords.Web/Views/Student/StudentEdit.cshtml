@@ -1,0 +1,171 @@
+﻿@model StudentRecords.Web.Models.StudentDto
+
+<form asp-action="StudentEdit">
+    <input asp-for="StudentId" hidden />
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Edit Student</h1>
+
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-2">
+                <label asp-for="StudentId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="StudentId" class="form-control" readonly="readonly" />
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="FirstName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="LastName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="KnownAs" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="KnownAs" class="form-control" />
+                <span asp-validation-for="KnownAs" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="DisplayName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="DisplayName" class="form-control" />
+                <span asp-validation-for="DisplayName" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="DateOfBirth" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Gender" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="UniversityEmail" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="UniversityEmail" class="form-control" />
+                <span asp-validation-for="UniversityEmail" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="NetworkId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="NetworkId" class="form-control" />
+                <span asp-validation-for="NetworkId" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="HomeOrOverseas" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="HomeOrOverseas" class="form-control" />
+                <span asp-validation-for="HomeOrOverseas" class="text-danger"></span>
+            </div>
+
+            <div class="container border p-3">
+                <h3 class="text-primary">Update Course Enrollment Details:</h3>
+                <hr />
+                <div class="row">
+                    @for (int i = 0; i < Model.CourseEnrolment.Count; i++)
+                    {
+                    <div class="col-2 pb-3">
+                        <label asp-for="CourseEnrolment[i].AcademicYear" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-2 pb-3">
+                        @Html.EditorFor(x => x.CourseEnrolment[i].AcademicYear, new { @class = "form-control"})
+                    </div>
+
+                    <div class="col-2 pb-3">
+                        <label asp-for="CourseEnrolment[i].YearOfStudy" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-2 pb-3">
+                        @Html.EditorFor(x => x.CourseEnrolment[i].YearOfStudy, new { @class = "form-control"})
+                    </div>
+
+                    <div class="col-2 pb-3">
+                        <label asp-for="CourseEnrolment[i].Occurrence" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-2 pb-3">
+                        @Html.EditorFor(x => x.CourseEnrolment[i].Occurrence, new { @class = "form-control"})
+                    </div>
+
+                    <div class="col-2 pb-3">
+                        <label asp-for="CourseEnrolment[i].ModeOfAttendance" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-2 pb-3">
+                        @Html.EditorFor(x => x.CourseEnrolment[i].ModeOfAttendance, new { @class = "form-control"})
+                    </div>
+
+                    <div class="col-2 pb-3">
+                        <label asp-for="CourseEnrolment[i].EnrolmentStatus" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-2 pb-3">
+                        @Html.EditorFor(x => x.CourseEnrolment[i].EnrolmentStatus, new { @class = "form-control"})
+                    </div>
+
+                    <div class="col-2 pb-3">
+                        <label asp-for="CourseEnrolment[i].CourseEntryDate" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-2 pb-3">
+                        @Html.EditorFor(x => x.CourseEnrolment[i].CourseEntryDate, new { @class = "form-control"})
+                    </div>
+
+                    <div class="col-2 pb-3">
+                        <label asp-for="CourseEnrolment[i].ExpectedEndDate" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-2 pb-3">
+                        @Html.EditorFor(x => x.CourseEnrolment[i].ExpectedEndDate, new { @class = "form-control"})
+                    </div>
+
+                    <div class="col-2 pb-3">
+                        <label asp-for="CourseEnrolment[i].Course.CourseName" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-2 pb-3">
+                        @Html.EditorFor(x => x.CourseEnrolment[i].Course.CourseName, new { @class = "form-control"})
+                    </div>
+
+                    <hr />
+                    <div class="col-2 pb-3">
+                        <button id="btnAdd" type="button" class="btn btn-sm btn-secondary visible">Add More Course</button>
+                    </div>
+                    }
+
+                </div>
+            </div>
+
+            <div class="col-5 offset-2">
+                <a asp-action="StudentIndex" class="btn-primary btn form-control ">Back to Student List</a>
+            </div>
+            <div class="col-5">
+                <input type="submit" value="Update" class="btn btn-success form-control" />
+
+            </div>
+
+        </div>
+
+        <div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

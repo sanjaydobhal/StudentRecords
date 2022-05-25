@@ -1,0 +1,103 @@
+﻿@model IEnumerable<StudentRecords.Web.Models.StudentDto>
+
+<br />
+<br />
+
+<div class="container p-4 border">
+    <div class="row pb-2">
+        <div class="col">
+            <h1 class="text-primary">Student List</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a asp-action="StudentCreate" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Create New Student</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Student ID
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Enrollment ID
+                </th>
+                <th align="left">
+                    Course Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.StudentId
+                </td>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+                <td>
+                    @{
+                        var courseEnrollment = item.CourseEnrolment;
+                        if (courseEnrollment != null)
+                        {
+                            foreach (var enroll in courseEnrollment)
+                            {
+                                <table>
+                                    <tr>
+                                        <td style="border:none">@enroll.EnrolmentId</td>                                        
+                                    </tr>
+                                </table>
+                            }
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        var courseEnrollName = item.CourseEnrolment;
+                        if (courseEnrollName != null)
+                        {
+                            foreach (var enroll in courseEnrollName)
+                            {
+                                <table>
+                                    <tr>
+                                        <td style="border:none">
+                                            @{
+                                                var course = enroll.Course;
+                                                if (course != null)
+                                                {
+                                                    @course.CourseName
+                                                }
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            }
+                        }
+                    }
+                </td>
+                <td></td>
+
+                <td>
+                    <a asp-action="StudentEdit" class="btn btn-success" asp-route-studentId="@item.StudentId">
+                        <i class="fas fa-edit">Edit</i>
+                    </a>
+                    <a asp-action="DeleteStudent" class="btn btn-danger" asp-route-studentId="@item.StudentId">
+                        <i class="fas fa-trash">Delete</i>
+                    </a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

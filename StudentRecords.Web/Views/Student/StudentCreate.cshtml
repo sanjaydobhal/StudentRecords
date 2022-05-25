@@ -1,0 +1,204 @@
+﻿@model StudentRecords.Web.Models.StudentDto
+
+<form asp-action="StudentCreate">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Student Personal Information</h1>
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2 pb-3">
+                <label asp-for="FirstName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-2 pb-3">
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="col-2 pb-3">
+                <label asp-for="LastName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-2 pb-3">
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="col-2 pb-3">
+                <label asp-for="KnownAs" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-2 pb-3">
+                <input asp-for="KnownAs" class="form-control" />
+                <span asp-validation-for="KnownAs" class="text-danger"></span>
+            </div>
+
+            <div class="col-2 pb-3">
+                <label asp-for="DisplayName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-2 pb-3">
+                <input asp-for="DisplayName" class="form-control" />
+                <span asp-validation-for="DisplayName" class="text-danger"></span>
+            </div>
+
+            <div class="col-2 pb-3">
+                <label asp-for="DateOfBirth" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-2 pb-3">
+                <input asp-for="DateOfBirth" class="form-control" />
+                @*<span asp-validation-for="DateOfBirth" class="text-danger"></span>*@
+            </div>
+
+            <div class="col-2 pb-3">
+                <label asp-for="Gender" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-2 pb-3">
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <div class="col-2 pb-3">
+                <label asp-for="UniversityEmail" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-2 pb-3">
+                <input asp-for="UniversityEmail" class="form-control" />
+                <span asp-validation-for="UniversityEmail" class="text-danger"></span>
+            </div>
+
+            <div class="col-2 pb-3">
+                <label asp-for="NetworkId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-2 pb-3">
+                <input asp-for="NetworkId" class="form-control" />
+                <span asp-validation-for="NetworkId" class="text-danger"></span>
+            </div>
+
+            <div class="col-2 pb-3">
+                <label asp-for="HomeOrOverseas" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-2 pb-3">
+                <input asp-for="HomeOrOverseas" class="form-control" />
+                <span asp-validation-for="HomeOrOverseas" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="container border p-3">
+        <h3 class="text-primary">Enter Course Enrollment Details:</h3>
+        <hr />
+        <div class="row">          
+            @for (int i = 0; i < Model.CourseEnrolment.Count; i++)
+            {
+                <div class="col-2 pb-3">
+                    <label asp-for="CourseEnrolment[i].AcademicYear" class="control-label pt-2" style="font-size:20px;"></label>
+                </div>
+                <div class="col-2 pb-3">
+                    @Html.EditorFor(x => x.CourseEnrolment[i].AcademicYear, new { @class = "form-control"})
+                </div>
+
+                <div class="col-2 pb-3">
+                    <label asp-for="CourseEnrolment[i].YearOfStudy" class="control-label pt-2" style="font-size:20px;"></label>
+                </div>
+                <div class="col-2 pb-3">
+                    @Html.EditorFor(x => x.CourseEnrolment[i].YearOfStudy, new { @class = "form-control"})
+                </div>
+
+                <div class="col-2 pb-3">
+                    <label asp-for="CourseEnrolment[i].Occurrence" class="control-label pt-2" style="font-size:20px;"></label>
+                </div>
+                <div class="col-2 pb-3">
+                    @Html.EditorFor(x => x.CourseEnrolment[i].Occurrence, new { @class = "form-control"})
+                </div>
+
+                <div class="col-2 pb-3">
+                    <label asp-for="CourseEnrolment[i].ModeOfAttendance" class="control-label pt-2" style="font-size:20px;"></label>
+                </div>
+                <div class="col-2 pb-3">
+                    @Html.EditorFor(x => x.CourseEnrolment[i].ModeOfAttendance, new { @class = "form-control"})
+                </div>
+
+                <div class="col-2 pb-3">
+                    <label asp-for="CourseEnrolment[i].EnrolmentStatus" class="control-label pt-2" style="font-size:20px;"></label>
+                </div>
+                <div class="col-2 pb-3">
+                    @Html.EditorFor(x => x.CourseEnrolment[i].EnrolmentStatus, new { @class = "form-control"})
+                </div>
+
+                <div class="col-2 pb-3">
+                    <label asp-for="CourseEnrolment[i].CourseEntryDate" class="control-label pt-2" style="font-size:20px;"></label>
+                </div>
+                <div class="col-2 pb-3">
+                    @Html.EditorFor(x => x.CourseEnrolment[i].CourseEntryDate, new { @class = "form-control"})
+                </div>
+
+                <div class="col-2 pb-3">
+                    <label asp-for="CourseEnrolment[i].ExpectedEndDate" class="control-label pt-2" style="font-size:20px;"></label>
+                </div>
+                <div class="col-2 pb-3">
+                    @Html.EditorFor(x => x.CourseEnrolment[i].ExpectedEndDate, new { @class = "form-control"})
+                </div>
+
+                <div class="col-2 pb-3">
+                    <label asp-for="CourseEnrolment[i].Course.CourseName" class="control-label pt-2" style="font-size:20px;"></label>
+                </div>
+                <div class="col-2 pb-3">
+                    @Html.EditorFor(x => x.CourseEnrolment[i].Course.CourseName, new { @class = "form-control"})
+                </div>
+                
+                <hr />
+                 <div class="col-2 pb-3">
+                    <button id="btnAdd" type="button" class="btn btn-sm btn-secondary visible">Add More Course</button>
+                </div>
+            }
+          
+        </div>
+    </div>
+    <div class="container border p-3">
+        <div class="row" style="align-items:center">
+            <div class="col-3 offset-2">
+                <a asp-action="StudentIndex" class="btn-primary btn form-control ">Back to Student List</a>
+            </div>
+            <div class="col-3">
+                <input type="submit" value="Save" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+   
+</form>
+
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+
+        function DeleteItem(btn) {
+            $(btn).closest('tr').remove();
+        }
+        // for enrolling student to multiple courses ( maintaining parent child relation on this page only)
+        function AddItem(btn) {
+            var table = document.getElementById('ExpTable');
+            var rows = table.getElementsByTagName('tr');
+            var rowOuterHtml = rows[rows.length - 1].outerHTML;
+            var lastrowIdx = document.getElementById('hdnLastIndex').value;
+            var nextrowIdx = eval(lastrowIdx) + 1;
+            document.getElementById('hdnLastIndex').value = nextrowIdx;
+            rowOuterHtml = rowOuterHtml.replaceAll('_' + lastrowIdx + '_', '_' + nextrowIdx + '_');
+            rowOuterHtml = rowOuterHtml.replaceAll('[' + lastrowIdx + ']', '[' + nextrowIdx + ']');
+            rowOuterHtml = rowOuterHtml.replaceAll('-' + lastrowIdx, '-' + nextrowIdx);
+            var newRow = table.insertRow();
+            newRow.innerHTML = rowOuterHtml;
+
+            var btnAddID = btn.id;
+            var btnDeleteid = btnAddID.replaceAll('btnadd', 'btnremove');
+            var delbtn = document.getElementById(btnDeleteid);
+            delbtn.classList.add("visible");
+            delbtn.classList.remove("invisible");
+
+            var addbtn = document.getElementById(btnAddID);
+            addbtn.classList.remove("visible");
+            addbtn.classList.add("invisible");
+        }
+
+    </script>
+}
+
